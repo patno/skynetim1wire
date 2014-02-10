@@ -1,0 +1,40 @@
+<html>
+<head>
+  <script src="skynet-localhost.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+  
+  <script>
+    var skynetConfig = {
+      "uuid": "0d3a53a0-2a0b-11e3-b09c-ff4de847b2cc",
+      "token": "qirqglm6yb1vpldixflopnux4phtcsor"
+    }    
+    skynet(skynetConfig, function (e, socket) {
+    // skynet(function (e, skynet) {
+    // skynet({appName:'chris'}, function (e, skynet) {
+      if (e) throw e
+
+      // Sample Skynet API calls:
+      socket.emit('status', function(data){
+        console.log('status received');
+        console.log(data);
+        $("#log").text(JSON.stringify(data));
+      });
+
+      // Receive last 10 device events
+      socket.emit('events', {
+        "uuid": "0d3a53a0-2a0b-11e3-b09c-ff4de847b2cc",
+        "token": "qirqglm6yb1vpldixflopnux4phtcsor"
+      }, function (data) {
+        console.log(data); 
+        $("#log").append(JSON.stringify(data));
+      });      
+
+    });
+  </script>
+</head>
+<body>
+  Skynet client-side app
+  
+  <p id="log">----</p>
+</body>
+</html>
