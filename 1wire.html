@@ -5,8 +5,8 @@
   
   <script>
     var skynetConfig = {
-      "uuid": "0d3a53a0-2a0b-11e3-b09c-ff4de847b2cc",
-      "token": "qirqglm6yb1vpldixflopnux4phtcsor"
+      "uuid": "browser4test",
+      "token": "baggis"
     }    
     skynet(skynetConfig, function (e, socket) {
     // skynet(function (e, skynet) {
@@ -22,16 +22,16 @@
 
       // Receive last 10 device events
       socket.emit('events', {
-        "uuid": "0d3a53a0-2a0b-11e3-b09c-ff4de847b2cc",
-        "token": "qirqglm6yb1vpldixflopnux4phtcsor"
+        "uuid": "browser4test",
+        "token": "baggis"
       }, function (data) {
         console.log(data); 
         $("#log").append(JSON.stringify(data));
       });      
 
       socket.emit('devices', {
-        "uuid": "0d3a53a0-2a0b-11e3-b09c-ff4de847b2cc",
-        "token": "qirqglm6yb1vpldixflopnux4phtcsor"
+        "uuid": "browser4test",
+        "token": "baggis"
       }, function (data) {
         console.log(data); 
         $("#log").append(JSON.stringify(data));
@@ -42,7 +42,7 @@
 </head>
 <body>
   Skynet client-side app
-
+<br>
 <textarea id="log" rows="40" cols="80">
 ---
 </textarea>  
